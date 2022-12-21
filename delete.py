@@ -1,7 +1,9 @@
 import numpy as np
-from util import hat1
+import torch
 
-a = 3
-b = 1
-c = a-b*2
+
+
+a = torch.tensor([2], device='cuda:0')
+b = torch.tensor([3], device='cuda:0')
+c = a-b
 print(c)
