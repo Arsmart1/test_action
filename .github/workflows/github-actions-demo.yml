@@ -28,7 +28,8 @@ jobs:
       - name: List all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "${file##*.} was changed111"
+#            echo "${file##*.} was changed111"
+            if ${file##*.} == "py"; then python $file; fi
             echo "$file was changed"
           done
 
