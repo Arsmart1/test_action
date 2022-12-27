@@ -26,10 +26,11 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v35
 
-      - name: List all changed files
+      - name: List all changed files and run python file
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
+            if ${$file#*/} == "py"; then python $file; fi
+#            echo "$file was changed"
           done
 
 
@@ -38,6 +39,6 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Test with python
-        run: |
-            python delete.py
+#      - name: Test with python
+#        run: |
+#            python delete.py
