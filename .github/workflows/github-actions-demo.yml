@@ -35,7 +35,7 @@ jobs:
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
 #            echo "${file##*.} was changed111"
-             python .github/workflows/test.py --filename $file
+#             python .github/workflows/test.py --filename $file
              echo "$file was changed"
           done
 
